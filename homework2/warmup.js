@@ -76,13 +76,7 @@ exports.prefixes=function(string, print_function){
 
 exports.interleave= function(array1, array2){
   var array3= []
-  if(array1.length>array2.length){
-    length=array1.length
-  }else if(array2.length>array1.length){
-    length=array2.length
-  }else{
-    length=array1.length
-  }
+  var length=Math.max(array1.length,array2.length)
 
   for(i=0;i<length;i++){
     if(i<array1.length){
@@ -91,7 +85,6 @@ exports.interleave= function(array1, array2){
     if(i<array2.length){
       array3.push(array2[i])
     }
-
   }
  return array3
 
