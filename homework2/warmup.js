@@ -93,8 +93,6 @@ exports.interleave= function(array1, array2){
     }
 
   }
-
-  
  return array3
 
 }
@@ -104,3 +102,4 @@ exports.interleave= function(array1, array2){
 
 exports.stutter=function(array){
   return interleave(array,array)
+}
