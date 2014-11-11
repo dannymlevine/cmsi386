@@ -187,9 +187,10 @@ Write the interleave function from the previous three assignments in C++, using 
 ####Answer:
 
 ```
-int *interleave(int ar1[],int length1,int ar2[],int length2){
+template<typename T>
+T *interleave(T ar1[],int length1,T ar2[],int length2){
 	int length=length1+length2;
-	int ar3[length];
+	T ar3[length];
 	int loc=0;
 	for(int i=0;i<length;i++){
 		if(i<length1){
@@ -201,7 +202,7 @@ int *interleave(int ar1[],int length1,int ar2[],int length2){
 			loc++;
 		}
 	}
-	int * interleavedArray=ar3;
+	T * interleavedArray=ar3;
 	return interleavedArray;
 }
 ```
@@ -215,8 +216,9 @@ Write the interleave function from the previous three assignments in C++, using 
 #include <algorithm>
 #include <vector>
 using namespace std;
-vector<int> interleave(vector<int> a,vector<int> b){
-	vector<int> combined_vectors;
+template<typename T>
+vector<T> interleave(vector<T> a,vector<T> b){
+	vector<T> combined_vectors;
 	int length=max(a.size(),b.size());
 	for(int i=0;i<length;i++){
 		if(i<a.size()){
@@ -311,6 +313,6 @@ This is wrong because the if a function is passed into y or z it will be unneces
 yes. Because Macros are evaluate lazy so the function that is unnecessary would not be evaluated
 
 ```
-#define IF_THEN_ELSE(x,y,z) {return x?y:z}
+#define IF_THEN_ELSE(x,y,z) (return (x)?(y):(z))
 ```
 
